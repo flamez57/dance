@@ -16,9 +16,9 @@ export default class Contact extends Component {
 
 				<div class="message">
 					<div class="col-md-6 col-sm-6 grid_6 c1">
-						{/*<input type="text" class="margin-right" Name="Name" placeholder="Name" required="">*/}
-						{/*<input type="email" Name="Email" placeholder="Email" required="">*/}
-						{/*<input type="text" class="margin-right" Name="Phone Number" placeholder="Phone Number" required="">*/}
+						<input type="text" class="margin-right" Name="Name" placeholder="Name" required="" />
+						<input type="email" Name="Email" placeholder="Email" required="" />
+						<input type="text" class="margin-right" Name="Phone Number" placeholder="Phone Number" required="" />
 					</div>
 
 					<div class="col-md-6 col-sm-6 grid_6 c1">
@@ -27,7 +27,7 @@ export default class Contact extends Component {
 					<div class="clearfix"></div>
 				</div>
 
-				{/*<input type="submit" value="SEND MESSAGE">*/}
+				<input type="submit" value="SEND MESSAGE" />
 			</form>
 				<section class="social">
                         <ul>

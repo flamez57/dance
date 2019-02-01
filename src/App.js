@@ -136,7 +136,7 @@ class App extends Component {
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                {/*<img src="images/2.jpg" alt=" " class="img-responsive">*/}
+                                <img src="images/2.jpg" alt=" " class="img-responsive" />
                                 <h5>Donec lobortis pharetra dolor</h5>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typeset
                                     ting industry. Lorem Ipsum has been the industry's standard dumm
@@ -156,15 +156,15 @@ class App extends Component {
                             <input type="text" name="Email" class="email" placeholder="Email" required=""/>
                             <input type="password" name="Password" class="password" placeholder="Password" required=""/>
                             <div class="check-box">
-                                {/*<input name="chekbox" type="checkbox" id="brand" value="">*/}
+                                <input name="chekbox" type="checkbox" id="brand" value="" />
                                 <label for="brand"><span></span>Remember Me.</label>
                             </div>
-                            {/*<input type="submit" value="Sign Up">*/}
+                            <input type="submit" value="Sign Up" />
                         </form>
                     </div>
                 </div>
                 <Instructors/>
-                {/*<Gallery/>*/}
+                <Gallery/>
 <div class="testmonials" id="monials">
 		<div id="particles-js1"></div>
 		   <div class="client-top">
@@ -181,7 +181,7 @@ Happy Students Say</h3>
 
 											<div class="c-img"><i class="fa fa-quote-right"></i> </div>
 											<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-											{/*<h4><img src="images/m1.jpg" alt="">Alice Lengthorn</h4>*/}
+											<h4><img src="images/m1.jpg" alt="" />Alice Lengthorn</h4>
 
 									</div>
 
@@ -194,7 +194,7 @@ Happy Students Say</h3>
 
                                         <div class="c-img"><i class="fa fa-quote-right"></i> </div>
 										<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-										{/*<h4><img src="images/m2.jpg" alt=""> Martin Pal</h4>*/}
+										<h4><img src="images/m2.jpg" alt="" /> Martin Pal</h4>
 
 								</div>
 								<div class="clearfix"></div>
@@ -206,7 +206,7 @@ Happy Students Say</h3>
 
                                         <div class="c-img"><i class="fa fa-quote-right"></i> </div>
 										<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-										{/*<h4><img src="images/m3.jpg" alt="">MARTIN NIXON</h4>*/}
+										<h4><img src="images/m3.jpg" alt="" />MARTIN NIXON</h4>
 
 								</div>
 
@@ -253,7 +253,7 @@ Happy Students Say</h3>
                     <Route path="/about" component={About}/>
                     <Route path="/settings" component={Settings}/>
                 </Router>
-                <List />
+                {/*<List />*/}
             </div>
         );
     }
