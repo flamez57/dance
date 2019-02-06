@@ -2,6 +2,17 @@ import React, {Component} from 'react';
 
 
 export default class Contact extends Component {
+	constructor(props){
+        super(props);
+        this.state={
+            hmData:[
+            	{cla1:"w3layouts-banner-top"},
+            	{cla1:"w3layouts-banner-top w3layouts-banner-top1"},
+            	{cla1:"w3layouts-banner-top w3layouts-banner-top2"},
+			],
+            isLoaded:false
+        }
+    }
     render() {
         return (
             <div class="contact" id="contact">

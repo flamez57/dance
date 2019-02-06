@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Router, browserHistory, Route, Link } from 'react-router';
 import './App.css';
 import axios from 'axios';
 import './config';
@@ -12,64 +11,6 @@ import Gallery from "./components/Index/Gallery";
 import Contact from "./components/Index/Contact";
 import Footer from "./components/Index/Footer";
 
-class TrData extends Component{
-    render(){
-        return (
-            this.props.users.map((user,i)=>{
-                return (
-                    <tr key={user.id} className="text-center">
-                        <td>{user.id}</td>
-                        <td>{user.title}</td>
-                        <td>{user.name}</td>
-                        <td>{user.sex}</td>
-                    </tr>
-                )
-            })
-        )
-    }
-}
-
-const Page = ({ title }) => (
-    <div className="App">
-        <div className="App-header">
-            <h2>{title}</h2>
-        </div>
-        <p className="App-intro">
-            This is the {title} page.
-        </p>
-        <p>
-            <Link to="/">Home</Link>
-        </p>
-        <p>
-            <Link to="/about">About</Link>
-        </p>
-        <p>
-            <Link to="/settings">Settings</Link>
-        </p>
-    </div>
-);
-
-// const Home = (props) => (
-//     <div>
-//         首页页面这里写
-//         <a href="tel:17758023364">17758023364</a>
-//         <Page title="Home"/>
-//     </div>
-// );
-
-// const About = (props) => (
-//     <div>
-//         about页面这里写
-//         <Page title="About"/>
-//     </div>
-// );
-
-const Settings = (props) => (
-    <div>
-        set页面这里写
-        <Page title="Settings"/>
-    </div>
-);
 
 class List extends Component {
     constructor(props){
@@ -98,30 +39,6 @@ class List extends Component {
             })
         })
     }
-
-   render() {
-       if (!this.state.isLoaded) {
-           return (
-               <div>Loading</div>
-           );
-       } else {
-           return (
-               <table className="table table-bordered">
-                   <thead>
-                   <tr>
-                       <th className="text-center">ID</th>
-                       <th className="text-center">姓名</th>
-                       <th className="text-center">年龄</th>
-                       <th className="text-center">性别</th>
-                   </tr>
-                   </thead>
-                   <tbody>
-                   <TrData users={this.state.users}/>
-                   </tbody>
-               </table>
-           );
-       }
-   }
 }
 
 class App extends Component {
@@ -130,13 +47,13 @@ class App extends Component {
             <div className="App">
                 <Home />
                 <About/>
-                <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <img src="images/2.jpg" alt=" " class="img-responsive" />
+                <div className="copyrights">Collect from <a href="http://mysweet95.com"  title="dance">dance</a></div>
+                <div className="modal fade" id="myModal" tabIndex="-1" role="dialog">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="close" data-dismiss="modal">&times;</button>
+                                <img src="images/2.jpg" alt=" " className="img-responsive" />
                                 <h5>Donec lobortis pharetra dolor</h5>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typeset
                                     ting industry. Lorem Ipsum has been the industry's standard dumm
@@ -148,14 +65,14 @@ class App extends Component {
                 </div>
                 <Classes/>
                 <Plans/>
-                <div class="pop-up">
-                    <div id="small-dialog" class="mfp-hide book-form">
+                <div className="pop-up">
+                    <div id="small-dialog" className="mfp-hide book-form">
                         <h4>Sign Up Form </h4>
                         <form action="#" method="post">
                             <input type="text" name="Name" placeholder="Your Name" required=""/>
-                            <input type="text" name="Email" class="email" placeholder="Email" required=""/>
-                            <input type="password" name="Password" class="password" placeholder="Password" required=""/>
-                            <div class="check-box">
+                            <input type="text" name="Email" className="email" placeholder="Email" required=""/>
+                            <input type="password" name="Password" className="password" placeholder="Password" required=""/>
+                            <div className="check-box">
                                 <input name="chekbox" type="checkbox" id="brand" value="" />
                                 <label for="brand"><span></span>Remember Me.</label>
                             </div>
@@ -165,95 +82,77 @@ class App extends Component {
                 </div>
                 <Instructors/>
                 <Gallery/>
-<div class="testmonials" id="monials">
-		<div id="particles-js1"></div>
-		   <div class="client-top">
-		  <h3 class="title-w3 three">What Our
-Happy Students Say</h3>
-		       <p class="sub-text">Choose Your Style</p>
-		    <div class="slider">
-					<div class="callbacks_container">
-						<ul class="rslides" id="slider3">
-							<li>
-								 <div class="agileits-clients">
+                <div className="testmonials" id="monials">
+		            <div id="particles-js1"></div>
+		            <div className="client-top">
+		                <h3 className="title-w3 three">What Our Happy Students Say</h3>
+		                <p className="sub-text">Choose Your Style</p>
+		                <div className="slider">
+					        <div className="callbacks_container">
+						        <ul className="rslides" id="slider3">
+							        <li>
+                                        <div className="agileits-clients">
+                                            <div className=" client_agile_info">
 
-									<div class=" client_agile_info">
-
-											<div class="c-img"><i class="fa fa-quote-right"></i> </div>
-											<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-											<h4><img src="images/m1.jpg" alt="" />Alice Lengthorn</h4>
-
-									</div>
-
-								</div>
-							</li>
-							<li>
-							<div class="agileits-clients">
-
-								<div class="client_agile_info">
-
-                                        <div class="c-img"><i class="fa fa-quote-right"></i> </div>
-										<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-										<h4><img src="images/m2.jpg" alt="" /> Martin Pal</h4>
-
-								</div>
-								<div class="clearfix"></div>
-								</div>
-							</li>
-							<li>
-							<div class="agileits-clients">
-							     <div class=" client_agile_info">
-
-                                        <div class="c-img"><i class="fa fa-quote-right"></i> </div>
-										<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-										<h4><img src="images/m3.jpg" alt="" />MARTIN NIXON</h4>
-
-								</div>
-
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				</div>
-	</div>
-	<div class="agile-contact">
-
-		<div class="col-md-6 contact-map-right">
-			<div id="map"></div>
-		</div>
-		<div class="col-md-6 left-contact">
-		<div class="cont-top">
-			<h5><i class="fa fa-envelope" aria-hidden="true"></i>Email</h5>
-			<a href="mailto:info@example.com">info@example.com</a>
-		</div>
-		<div class="con-bot">
-			<div class="left-bw3">
-				<h5><i class="fa fa-map-marker" aria-hidden="true"></i>Address</h5>
-				<p>New York 3000</p>
-				<p>40019 Honey Street,</p>
-				<p>Morocco Casablanca</p>
-			</div>
-			<div class="right-bw3">
-				<h5><i class="fa fa-phone" aria-hidden="true"></i>Phone</h5>
-				<p>Telephone : +1 (734) 123-4567</p>
-				<p>+2158 85467</p>
-				<p>+2158 85467</p>
-			</div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
-</div>
+                                                <div className="c-img"><i className="fa fa-quote-right"></i> </div>
+                                                <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                                <h4><img src="images/m1.jpg" alt="" />Alice Lengthorn</h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className="agileits-clients">
+                                            <div className="client_agile_info">
+                                                <div className="c-img"><i className="fa fa-quote-right"></i> </div>
+                                                <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                                <h4><img src="images/m2.jpg" alt="" /> Martin Pal</h4>
+								            </div>
+								            <div className="clearfix"></div>
+								        </div>
+							        </li>
+							        <li>
+                                        <div className="agileits-clients">
+                                            <div className=" client_agile_info">
+                                                <div className="c-img"><i className="fa fa-quote-right"></i> </div>
+                                                <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                                <h4><img src="images/m3.jpg" alt="" />MARTIN NIXON</h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="agile-contact">
+                    <div className="col-md-6 contact-map-right">
+                        <div id="map"></div>
+                    </div>
+                    <div className="col-md-6 left-contact">
+                        <div className="cont-top">
+                            <h5><i className="fa fa-envelope" aria-hidden="true"></i>Email</h5>
+                            <a href="mailto:flamez57@mysweet95.com">flamez57@mysweet95.com</a>
+                        </div>
+                        <div className="con-bot">
+                            <div className="left-bw3">
+                                <h5><i className="fa fa-map-marker" aria-hidden="true"></i>Address</h5>
+                                <p>New York 3000</p>
+                                <p>40019 Honey Street,</p>
+                                <p>Morocco Casablanca</p>
+                            </div>
+                            <div className="right-bw3">
+                                <h5><i className="fa fa-phone" aria-hidden="true"></i>Phone</h5>
+                                <p>Telephone : +1 (734) 123-4567</p>
+                                <p>+2158 85467</p>
+                                <p>+2158 85467</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="clearfix"></div>
+                </div>
                 <Contact/>
                 <Footer/>
-                {/*<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>*/}
-                <Router history={browserHistory}>
-                    <Route path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/settings" component={Settings}/>
-                </Router>
-                {/*<List />*/}
+                <a href="/" id="toTop" style={{display:'block'}}> <span id="toTopHover" style={{opacity:1}}> </span></a>
             </div>
         );
     }

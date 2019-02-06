@@ -29,31 +29,31 @@ export default class About extends Component {
 
     render() {
         return (
-            <div class="about" id="about">
-      			<div class="col-md-6 ab-w3-agile-info">
-	   				<div class="ab-w3-agile-info-text">
-	     				<h2 class="title-w3">{this.state.aboutUs.title}</h2>
-		 				<p class="sub-text one">{this.state.aboutUs.subText}</p>
+            <div className="about" id="about">
+      			<div className="col-md-6 ab-w3-agile-info">
+	   				<div className="ab-w3-agile-info-text">
+	     				<h2 className="title-w3">{this.state.aboutUs.title}</h2>
+		 				<p className="sub-text one">{this.state.aboutUs.subText}</p>
 		 				<p>{this.state.aboutUs.content}</p>
-						<div class="agileits_w3layouts_more menu__item one">
-							<a href={this.state.aboutUs.link} class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
+						<div className="agileits_w3layouts_more menu__item one">
+							<a href={this.state.aboutUs.link} className="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
 						</div>
 		  			</div>
-		  			<div class="ab-w3-agile-inner">
-						<div class="col-md-6 ab-w3-agile-part">
+		  			<div className="ab-w3-agile-inner">
+						<div className="col-md-6 ab-w3-agile-part">
 							<h4>{this.state.supplies.title}</h4>
 							<p>{this.state.supplies.content}</p>
 						</div>
-						<div class="col-md-6 ab-w3-agile-part two">
+						<div className="col-md-6 ab-w3-agile-part two">
 							<h4>{this.state.masterClasses.title}</h4>
 							<p>{this.state.masterClasses.content}</p>
 						</div>
-						<div class="clearfix"></div>
+						<div className="clearfix"></div>
 					</div>
 				</div>
-	  			<div class="col-md-6 ab-w3-agile-img">
+	  			<div className="col-md-6 ab-w3-agile-img">
 	  			</div>
-				<div class="clearfix"></div>
+				<div className="clearfix"></div>
 			</div>
         );
     }

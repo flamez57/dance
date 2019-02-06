@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 
-class classData extends Component{
+class ClassData extends Component{
     render(){
         return (
             this.props.danCls.map((danCls,i)=>{
                 return (
-                	<div class="col-md-3 class-grid">
-						<div class="class-grid-img hvr-sweep-to-top">
+                	<div className="col-md-3 class-grid" key={i}>
+						<div className="class-grid-img hvr-sweep-to-top">
 					       	<img src={danCls.pic} alt=""/>
-						    <div class="caption">
+						    <div className="caption">
 							    <h5>{danCls.title}</h5>
 							</div>
 						</div>
@@ -36,13 +36,13 @@ export default class Classes extends Component {
 
     render() {
         return (
-			<div class="services" id="classes">
-				<div class="container">
-		 			<h3 class="title-w3">Dancing Classes</h3>
-		 			<p class="sub-text">Choose Your Style</p>
-		     		<div class="wthree-agile-classes-section">
-				 		<classData danCls={this.state.danCls}/>
-						<div class="clearfix"> </div>
+			<div className="services" id="classes">
+				<div className="container">
+		 			<h3 className="title-w3">Dancing Classes</h3>
+		 			<p className="sub-text">Choose Your Style</p>
+		     		<div className="wthree-agile-classes-section">
+				 		<ClassData danCls={this.state.danCls}/>
+						<div className="clearfix"> </div>
 	         		</div>
 				</div>
 			</div>
