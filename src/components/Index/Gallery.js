@@ -1,121 +1,62 @@
 import React, {Component} from 'react';
 
+class GalData extends Component{
+    render(){
+        return (
+            this.props.galData.map((galData,i)=>{
+                return (
+                	<div className="col-md-4 gallery-grid" key={i}>
+                        <div
+                            className="carouselGallery-col-1 carouselGallery-carousel"
+                            data-likes="3144"
+                            data-index={i}
+                            data-username=" "
+                            data-imagetext={galData.imgText}
+                            data-location={galData.project}
+                            data-imagepath={galData.pic}
+                            data-posturl="#"
+                            style={{backgroundImage:"url("+galData.pic+")"}}
+                        >
+                            <div className="carouselGallery-item">
+                                <div className="carouselGallery-item-meta">
+                                    <span className="carouselGallery-item-meta-user">
+                                        {galData.title}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })
+        )
+    }
+}
 
 export default class Gallery extends Component {
+	constructor(props){
+        super(props);
+        this.state={
+            galData:[
+            	{pic:"images/g1.jpg",imgText:"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",title:"Photo Gallery",project:"Project1"},
+            	{pic:"images/g2.jpg",imgText:"Occaecati at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",title:"Photo Gallery",project:"Project2"},
+            	{pic:"images/g3.jpg",imgText:"similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, Et harum quidem rerum facilis est et expedita distinctio.",title:"Photo Gallery",project:"Project3"},
+            	{pic:"images/g4.jpg",imgText:"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",title:"Photo Gallery",project:"Project4"},
+            	{pic:"images/g5.jpg",imgText:"Similique sunt in culpa qui at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",title:"Photo Gallery",project:"Project5"},
+            	{pic:"images/g6.jpg",imgText:"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.",title:"Photo Gallery",project:"Project6"}
+			],
+            isLoaded:false
+        }
+    }
     render() {
-        const img1 = 'images/g1.jpg';
-        const img2 = 'images/g2.jpg';
-        const img3 = 'images/g3.jpg';
-        const img4 = 'images/g4.jpg';
-        const img5 = 'images/g5.jpg';
-        const img6 = 'images/g6.jpg';
         return (
-<div class="gallery" id="gallery">
-			<h3 class="title-w3">Photo Gallery</h3>
-		 <p class="sub-text">Choose Your Style</p>
-			<div class="gallery-grids carouselGallery-grid hidden-xs">
-				<div class="col-md-4 gallery-grid">
-					<div class="carouselGallery-col-1 carouselGallery-carousel" data-likes="3144" data-index="0" data-username=" " data-imagetext="At vero eos et accusamus et iusto odio
-						 dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-						 et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-						 officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-						data-location="Project1" data-imagepath="images/g1.jpg" data-posturl="#"
-						style={{backgroundImage:"url("+img1+")"}}>
-						<div class="carouselGallery-item">
-							<div class="carouselGallery-item-meta">
-								<span class="carouselGallery-item-meta-user">
-								Photo Gallery
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="carouselGallery-col-1 carouselGallery-carousel" data-likes="3144" data-index="1" data-username=" " data-imagetext="Occaecati at vero eos et accusamus et iusto odio
-						 dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-						 et quas molestias excepturi sint cupiditate non provident, similique sunt in culpa qui
-						 officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-						data-location="Project2" data-imagepath="images/g2.jpg" data-posturl="#"
-						style={{backgroundImage:"url("+img2+")"}}>
-						<div class="carouselGallery-item">
-							<div class="carouselGallery-item-meta">
-								<span class="carouselGallery-item-meta-user">
-								Photo Gallery
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="carouselGallery-col-1 carouselGallery-carousel" data-likes="3144" data-index="2" data-username=" " data-imagetext="similique sunt in culpa qui
-						 officia deserunt mollitia animi, id est laborum et dolorum fuga. At vero eos et accusamus et iusto odio
-						 dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-						 et quas molestias excepturi sint occaecati cupiditate non provident, Et harum quidem rerum facilis est et expedita distinctio."
-						data-location="Project3" data-imagepath="images/g3.jpg" data-posturl="#"
-						style={{backgroundImage:"url("+img3+")"}}>
-						<div class="carouselGallery-item">
-							<div class="carouselGallery-item-meta">
-								<span class="carouselGallery-item-meta-user">
-								Photo Gallery
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 gallery-grid">
-					<div class="carouselGallery-col-1 carouselGallery-carousel" data-likes="3144" data-index="3" data-username=" " data-imagetext="At vero eos et accusamus et iusto odio
-						 dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-						 et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-						 officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-						data-location="Project4" data-imagepath="images/g4.jpg" data-posturl="#"
-						style={{backgroundImage:"url("+img4+")"}}>
-						<div class="carouselGallery-item">
-							<div class="carouselGallery-item-meta">
-								<span class="carouselGallery-item-meta-user">
-								Photo Gallery
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="carouselGallery-col-1 carouselGallery-carousel" data-likes="3144" data-index="4" data-username=" " data-imagetext="Similique sunt in culpa qui at vero eos et accusamus et iusto odio
-						 dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-						 et quas molestias excepturi sint occaecati cupiditate non provident,
-						 officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-						data-location="Project5" data-imagepath="images/g5.jpg" data-posturl="#"
-						style={{backgroundImage:"url("+img5+")"}}>
-						<div class="carouselGallery-item">
-							<div class="carouselGallery-item-meta">
-								<span class="carouselGallery-item-meta-user">
-								Photo Gallery
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="carouselGallery-col-1 carouselGallery-carousel" data-likes="3144" data-index="5" data-username=" " data-imagetext="At vero eos et accusamus et iusto odio
-						 dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-						 et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-						 officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-						data-location="Project6" data-imagepath="images/g6.jpg" data-posturl="#"
-						style={{backgroundImage:"url("+img6+")"}}>
-						<div class="carouselGallery-item">
-							<div class="carouselGallery-item-meta">
-								<span class="carouselGallery-item-meta-user">
-								Photo Gallery
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="clearfix"> </div>
-
-			</div>
-	</div>
+            <div className="gallery" id="gallery">
+			    <h3 className="title-w3">Photo Gallery</h3>
+		        <p className="sub-text">Choose Your Style</p>
+			    <div className="gallery-grids carouselGallery-grid hidden-xs">
+                    <GalData galData={this.state.galData}/>
+				    <div className="clearfix"> </div>
+			    </div>
+	        </div>
         );
     }
 }
