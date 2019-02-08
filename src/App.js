@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
 import './App.css';
 import './config';
 import Home from "./components/Index/Home";
@@ -12,6 +14,57 @@ import Footer from "./components/Index/Footer";
 import Particles from 'react-particles-js';
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            users:[],
+            isLoaded:false,
+   			height: props.height || -1
+        }
+    }
+
+    //当组件输出到 DOM 后会执行 componentDidMount()
+    componentDidMount(){
+        const _this=this;    //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
+        _this.updateSize();
+        window.addEventListener('resize', () => _this.updateSize());
+        axios.get(global.frApi.lists)
+        .then(function (response) {
+            _this.setState({
+                users:response.data,
+                isLoaded:true
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+            _this.setState({
+                isLoaded:false,
+                error:error
+            })
+        })
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', () => this.updateSize());
+    }
+
+    updateSize() {
+        try {
+            const parentDom = ReactDOM.findDOMNode(this).childNodes[1];//parentNode;
+            console.log(parentDom.offsetHeight);
+            let { width, height } = this.props;
+            //如果props没有指定height和width就自适应
+            if (!width) {
+                width = parentDom.offsetWidth;
+            }
+            if (!height) {
+                height = parentDom.offsetHeight;
+            }
+            this.setState({ width, height });
+        } catch (ignore) {
+        }
+    }
+
     render() {
         return (
             <div className="App">
@@ -52,7 +105,7 @@ class App extends Component {
                 </div>
                 <Instructors/>
                 <Gallery/>
-                <div className="testmonials" id="monials">
+                <div className="testmonials" id="monials" style={{height:this.state.height}}>
                     <Particles/>
 		            <div className="client-top">
 		                <h3 className="title-w3 three">What Our Happy Students Say</h3>

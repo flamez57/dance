@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+import '../../config';
 import Particles from 'react-particles-js';
 
 export default class Contact extends Component {
@@ -10,12 +13,57 @@ export default class Contact extends Component {
             	{cla1:"w3layouts-banner-top w3layouts-banner-top1"},
             	{cla1:"w3layouts-banner-top w3layouts-banner-top2"},
 			],
-            isLoaded:false
+            users:[],
+            isLoaded:false,
+   			height: props.height || -1
         }
     }
+
+    //当组件输出到 DOM 后会执行 componentDidMount()
+    componentDidMount(){
+        const _this=this;    //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
+        _this.updateSize();
+        window.addEventListener('resize', () => _this.updateSize());
+        axios.get(global.frApi.lists)
+        .then(function (response) {
+            _this.setState({
+                users:response.data,
+                isLoaded:true
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+            _this.setState({
+                isLoaded:false,
+                error:error
+            })
+        })
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', () => this.updateSize());
+    }
+
+    updateSize() {
+        try {
+            const parentDom = ReactDOM.findDOMNode(this).childNodes[1];//parentNode;
+            console.log(parentDom.offsetHeight);
+            let { width, height } = this.props;
+            //如果props没有指定height和width就自适应
+            if (!width) {
+                width = parentDom.offsetWidth;
+            }
+            if (!height) {
+                height = parentDom.offsetHeight + 150;
+            }
+            this.setState({ width, height });
+        } catch (ignore) {
+        }
+    }
+
     render() {
         return (
-            <div className="contact" id="contact">
+            <div className="contact" id="contact" style={{height:this.state.height}}>
 				<Particles />
 				<div className="contact-top">
 					<h3 className="title-w3 con">Contact Us</h3>
