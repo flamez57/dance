@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import '../../config';
 import Particles from 'react-particles-js';
@@ -49,13 +50,16 @@ export default class Plans extends Component {
             	{price:"199",title:"1/2HR LESSON",cla1:"col-md-3 price-grid wthree lost",cla2:"bed four",cla3:"price-gd-top pric-clr4",cla4:"price-selet pric-sclr4"},
 			],
             users:[],
-            isLoaded:false
+            isLoaded:false,
+   			height: props.height || -1
         }
     }
 
     //当组件输出到 DOM 后会执行 componentDidMount()
     componentDidMount(){
         const _this=this;    //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
+        _this.updateSize();
+        window.addEventListener('resize', () => _this.updateSize());
         axios.get(global.frApi.lists)
         .then(function (response) {
             _this.setState({
@@ -72,10 +76,31 @@ export default class Plans extends Component {
         })
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', () => this.updateSize());
+    }
+
+    updateSize() {
+        try {
+            const parentDom = ReactDOM.findDOMNode(this).childNodes[1];//parentNode;
+            console.log(parentDom.offsetHeight);
+            let { width, height } = this.props;
+            //如果props没有指定height和width就自适应
+            if (!width) {
+                width = parentDom.offsetWidth;
+            }
+            if (!height) {
+                height = parentDom.offsetHeight + 150;
+            }
+            this.setState({ width, height });
+        } catch (ignore) {
+        }
+    }
+
     render() {
         return (
-			<div className="main" id="plans">
-                <Particles />
+			<div className="main" id="plans" style={{height:this.state.height}}>
+                <Particles/>
 				<div className="priceing-table-main">
 		       		<h3 className="title-w3 three">Our Pricing Pakages</h3>
 		       		<p className="sub-text">Choose Your Style</p>
