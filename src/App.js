@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 import './config';
 import Home from "./components/Index/Home";
 import About from "./components/Index/About";
@@ -10,36 +9,7 @@ import Instructors from "./components/Index/Instructors";
 import Gallery from "./components/Index/Gallery";
 import Contact from "./components/Index/Contact";
 import Footer from "./components/Index/Footer";
-
-
-class List extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            users:[],
-            isLoaded:false
-        }
-    }
-
-    //当组件输出到 DOM 后会执行 componentDidMount()
-    componentDidMount(){
-        const _this=this;    //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
-        axios.get(global.frApi.lists)
-        .then(function (response) {
-            _this.setState({
-                users:response.data,
-                isLoaded:true
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-            _this.setState({
-                isLoaded:false,
-                error:error
-            })
-        })
-    }
-}
+import Particles from 'react-particles-js';
 
 class App extends Component {
     render() {
@@ -74,7 +44,7 @@ class App extends Component {
                             <input type="password" name="Password" className="password" placeholder="Password" required=""/>
                             <div className="check-box">
                                 <input name="chekbox" type="checkbox" id="brand" value="" />
-                                <label for="brand"><span></span>Remember Me.</label>
+                                <label htmlFor="brand"><span></span>Remember Me.</label>
                             </div>
                             <input type="submit" value="Sign Up" />
                         </form>
@@ -83,7 +53,7 @@ class App extends Component {
                 <Instructors/>
                 <Gallery/>
                 <div className="testmonials" id="monials">
-		            <div id="particles-js1"></div>
+                    <Particles/>
 		            <div className="client-top">
 		                <h3 className="title-w3 three">What Our Happy Students Say</h3>
 		                <p className="sub-text">Choose Your Style</p>

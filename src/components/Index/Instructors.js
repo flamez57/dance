@@ -12,9 +12,9 @@ class InsData extends Component{
 								<h3>{instData.title}</h3>
 								<div className="icons">
 									<ul>
-										<li><a href="/"><i className="fa fa-facebook"></i></a></li>
+										<li><a href="//mysweet95.com"><i className="fa fa-facebook"></i></a></li>
 										<li className="team-twitter"><a href="/"><i className="fa fa-twitter"></i></a></li>
-										<li><a href="/"><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>
+										<li><a href="//mysweet95.com"><i className="fa fa-google-plus" aria-hidden="true"></i>.</a></li>
 									</ul>
 								</div>
 							</div>

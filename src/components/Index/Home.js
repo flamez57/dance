@@ -41,7 +41,7 @@ class Nav extends Component{
                         </div>
                         <div className="collapse navbar-collapse navbar-ex1-collapse">
                             <ul className="nav navbar-nav navbar-right">
-                                <li className="hidden"><a className="page-scroll" href="#page-top"></a>	</li>
+                                <li className="hidden"><a className="page-scroll" href="#page-top">|</a></li>
                                 <li><a className="page-scroll scroll" href="#home">Home</a></li>
                                 <li><a className="page-scroll scroll" href="#about">About</a></li>
                                 <li><a className="page-scroll scroll" href="#classes">Classes</a></li>
