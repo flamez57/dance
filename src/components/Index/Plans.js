@@ -83,7 +83,6 @@ export default class Plans extends Component {
     updateSize() {
         try {
             const parentDom = ReactDOM.findDOMNode(this).childNodes[1];//parentNode;
-            console.log(parentDom.offsetHeight);
             let { width, height } = this.props;
             //如果props没有指定height和width就自适应
             if (!width) {
